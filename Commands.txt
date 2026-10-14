@@ -65,3 +65,50 @@ $ git switch main
 $ git merge dev
 
 $ git push
+
+
+$ git checkout test
+Switched to branch 'test'
+
+( made changes )
+
+$ git add .
+
+$ git stash
+Saved working directory and index state WIP on test: 0ef6555 added file in test
+
+$ git stash pop
+
+
+$ git switch main
+
+(delete locally)
+
+$ git branch -D test
+Deleted branch test (was 0ef6555).
+
+
+(delete branch globaly)
+
+$ git push origin --delete dev
+To https://github.com/John19110/VC-lab2.git
+ - [deleted]         dev
+
+
+
+
+$ git tag -a v1.7 -m "v1.7"
+
+$ git tag
+
+$ git push tags 
+
+$ git tag -d v1.7
+
+$ git push origin --delete v1.7
+To https://github.com/John19110/VC-lab2.git
+ - [deleted]         v1.7
+
+
+
+
