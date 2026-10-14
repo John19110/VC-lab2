@@ -1,2 +1,197 @@
 ![Torta](Torta.png)
+# Git & GitHub Lab
 
+## 1. Initialize the Repository
+
+```bash
+git init
+```
+Initialize the local Git repository.
+
+```bash
+git status
+```
+Check the current repository status and branch.
+
+## 2. Connect the Local Repository to GitHub
+
+```bash
+git remote add origin https://github.com/John19110/VC-lab2.git
+```
+Link the local repository to the remote repository on GitHub.
+
+## 3. Make the Initial Commit and Push
+
+Create the initial file.
+
+```bash
+git add .
+git commit -m "initial file"
+git push -u origin main
+git status
+```
+
+## 4. Create and Switch Between Branches
+
+### Create the `dev` branch
+
+```bash
+git branch dev
+git checkout dev
+```
+
+### Create the `test` branch
+
+```bash
+git branch test
+git checkout test
+```
+
+## 5. Add a File and Commit Changes on `test`
+
+Check the repository status:
+
+```bash
+git status
+```
+
+The output shows `index.html` as an untracked file.
+
+```bash
+git add .
+git commit -m "adding new branch test and adding file to it"
+git push -u origin test
+```
+
+## 6. Push the `dev` Branch to GitHub
+
+```bash
+git checkout dev
+git push -u origin dev
+```
+
+## 7. Switch Between Branches and Merge Changes
+
+Switch to `test` and commit the changes:
+
+```bash
+git switch test
+git commit -m "added file in test"
+```
+
+Switch to `dev` and merge `test` into it:
+
+```bash
+git switch dev
+git merge test
+```
+
+Switch to `main` and merge `dev` into it:
+
+```bash
+git switch main
+git merge dev
+git push
+```
+
+## 8. Stash Changes
+
+Switch to `test` and make changes.
+
+### Save the changes temporarily
+
+```bash
+git add .
+git stash
+```
+
+Output:
+
+```text
+Saved working directory and index state WIP on test: 0ef6555 added file in test
+```
+
+### Restore the stashed changes
+
+```bash
+git stash pop
+```
+
+## 9. Delete Branches
+
+### Delete a Local Branch
+
+Switch to `main` and delete the local `test` branch:
+
+```bash
+git switch main
+git branch -D test
+```
+
+Output:
+
+```text
+Deleted branch test (was 0ef6555).
+```
+
+### Delete a Remote Branch
+
+Delete the `dev` branch from GitHub:
+
+```bash
+git push origin --delete dev
+```
+
+Output:
+
+```text
+To https://github.com/John19110/VC-lab2.git
+ - [deleted]         dev
+```
+
+## 10. Create and Delete Tags
+
+### Create an Annotated Tag
+
+```bash
+git tag -a v1.7 -m "v1.7"
+```
+
+### List Tags
+
+```bash
+git tag
+```
+
+### Push Tags
+
+```bash
+git push tags
+```
+
+### Delete a Local Tag
+
+```bash
+git tag -d v1.7
+```
+
+### Delete a Remote Tag
+
+```bash
+git push origin --delete v1.7
+```
+
+Output:
+
+```text
+To https://github.com/John19110/VC-lab2.git
+ - [deleted]         v1.7
+```
+
+## 11. Add an Image and Push Changes
+
+```bash
+git add .
+git commit -m "add image"
+git push
+```
