@@ -1,119 +1,196 @@
-$ git init
-initialize project 
+# Git & GitHub Lab
 
-$ git status
-On branch main
+## 1. Initialize the Repository
 
-$ git remote add origin https://github.com/John19110/VC-lab2.git
-link local to remote 
+```bash
+git init
+```
+Initialize the local Git repository.
 
-(made initial file)
+```bash
+git status
+```
+Check the current repository status and branch.
 
+## 2. Connect the Local Repository to GitHub
 
-$ git add .
+```bash
+git remote add origin https://github.com/John19110/VC-lab2.git
+```
+Link the local repository to the remote repository on GitHub.
 
-$ git commit -m"initial file"
+## 3. Make the Initial Commit and Push
 
-$ git push -u origin main
+Create the initial file.
 
-$ git status
-On branch main
+```bash
+git add .
+git commit -m "initial file"
+git push -u origin main
+git status
+```
 
+## 4. Create and Switch Between Branches
 
-$ git branch dev
+### Create the `dev` branch
 
-$ git checkout dev
-Switched to branch 'dev'
+```bash
+git branch dev
+git checkout dev
+```
 
-$ git branch test
+### Create the `test` branch
 
-$ git checkout test
-Switched to branch 'test'
+```bash
+git branch test
+git checkout test
+```
 
+## 5. Add a File and Commit Changes on `test`
 
-$ git status
-On branch test
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        index.html
+Check the repository status:
 
-$ git add .
+```bash
+git status
+```
 
-$ git commit -m"adding new branch test and adding file to it "
+The output shows `index.html` as an untracked file.
 
-$ git push -u origin test
+```bash
+git add .
+git commit -m "adding new branch test and adding file to it"
+git push -u origin test
+```
 
-$ git checkout dev
-Switched to branch 'dev'
+## 6. Push the `dev` Branch to GitHub
 
-$ git push -u origin dev
+```bash
+git checkout dev
+git push -u origin dev
+```
 
-$ git switch test
-Switched to branch 'test'
+## 7. Switch Between Branches and Merge Changes
 
+Switch to `test` and commit the changes:
 
-$  git commit -m"added file in test "
+```bash
+git switch test
+git commit -m "added file in test"
+```
 
+Switch to `dev` and merge `test` into it:
 
+```bash
+git switch dev
+git merge test
+```
 
-$ git switch dev
+Switch to `main` and merge `dev` into it:
 
-$ git merge test
+```bash
+git switch main
+git merge dev
+git push
+```
 
-$ git switch main
+## 8. Stash Changes
 
-$ git merge dev
+Switch to `test` and make changes.
 
-$ git push
+### Save the changes temporarily
 
+```bash
+git add .
+git stash
+```
 
-$ git checkout test
-Switched to branch 'test'
+Output:
 
-( made changes )
-
-$ git add .
-
-$ git stash
+```text
 Saved working directory and index state WIP on test: 0ef6555 added file in test
+```
 
-$ git stash pop
+### Restore the stashed changes
 
+```bash
+git stash pop
+```
 
-$ git switch main
+## 9. Delete Branches
 
-(delete locally)
+### Delete a Local Branch
 
-$ git branch -D test
+Switch to `main` and delete the local `test` branch:
+
+```bash
+git switch main
+git branch -D test
+```
+
+Output:
+
+```text
 Deleted branch test (was 0ef6555).
+```
 
+### Delete a Remote Branch
 
-(delete branch globaly)
+Delete the `dev` branch from GitHub:
 
-$ git push origin --delete dev
+```bash
+git push origin --delete dev
+```
+
+Output:
+
+```text
 To https://github.com/John19110/VC-lab2.git
  - [deleted]         dev
+```
 
+## 10. Create and Delete Tags
 
+### Create an Annotated Tag
 
+```bash
+git tag -a v1.7 -m "v1.7"
+```
 
-$ git tag -a v1.7 -m "v1.7"
+### List Tags
 
-$ git tag
+```bash
+git tag
+```
 
-$ git push tags 
+### Push Tags
 
-$ git tag -d v1.7
+```bash
+git push tags
+```
 
-$ git push origin --delete v1.7
+### Delete a Local Tag
+
+```bash
+git tag -d v1.7
+```
+
+### Delete a Remote Tag
+
+```bash
+git push origin --delete v1.7
+```
+
+Output:
+
+```text
 To https://github.com/John19110/VC-lab2.git
  - [deleted]         v1.7
+```
 
-$ git add .
+## 11. Add an Image and Push Changes
 
-$ git commit -m"add image"
-
-$ git push
-
-
-
+```bash
+git add .
+git commit -m "add image"
+git push
+```
