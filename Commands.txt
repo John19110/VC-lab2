@@ -1,0 +1,66 @@
+$ git init
+initialize project 
+
+$ git status
+On branch main
+
+$ git remote add origin https://github.com/John19110/VC-lab2.git
+link local to remote 
+
+(made initial file)
+
+
+$ git add .
+
+$ git commit -m"initial file"
+
+$ git push -u origin main
+
+$ git status
+On branch main
+
+
+$ git branch dev
+
+$ git checkout dev
+Switched to branch 'dev'
+
+$ git branch test
+
+$ git checkout test
+Switched to branch 'test'
+
+
+$ git status
+On branch test
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+
+$ git add .
+
+$ git commit -m"adding new branch test and adding file to it "
+
+$ git push -u origin test
+
+$ git checkout dev
+Switched to branch 'dev'
+
+$ git push -u origin dev
+
+$ git switch test
+Switched to branch 'test'
+
+
+$  git commit -m"added file in test "
+
+
+
+$ git switch dev
+
+$ git merge test
+
+$ git switch main
+
+$ git merge dev
+
